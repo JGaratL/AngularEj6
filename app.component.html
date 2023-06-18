@@ -1,0 +1,31 @@
+<div>
+  <div>
+      <p class="title">Simple {{title}}</p>
+  </div>
+
+  <div class="button-maker">
+    <mat-form-field>
+      <mat-label>Introduzca primer número</mat-label>
+      <input class="inputStyle" matInput type="number" placeholder="Introduzca un número"  [(ngModel)]="firstNumber">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Introduzca segundo número</mat-label>
+      <input matInput type="number" placeholder="Introduzca un número" [(ngModel)]="secondNumber">
+    </mat-form-field>
+    
+  </div>
+
+  <div>
+    <p class="resultStyle">
+      {{this.result.toFixed(2)}}
+    </p>
+  </div>
+
+  <div class="button-maker2">
+    <button class="buttonStyle" mat-raised-button color="primary" (click)="adition()">Sumar</button>
+    <button class="buttonStyle" mat-raised-button color="primary" (click)="subtraction()">Restar</button>
+    <button class="buttonStyle" mat-raised-button color="primary" (click)="multiply()">Multiplicar</button>
+    <button class="buttonStyle" mat-raised-button color="warn" (click)="reset()">Reset</button>
+
+  </div>
+</div>
