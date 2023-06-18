@@ -58,20 +58,30 @@ describe('AppComponent', () => {
 
   it('should have initial values of zero first number', () => {
     expect(component.firstNumber).toBe(0);
-  });
 
+    const num1Input: HTMLInputElement = fixture.nativeElement.querySelector('input[type="number"]');
+
+    expect(num1Input.value).toBe('');
+  });
 
   it('should have initial values of zero second number', () => {
     expect(component.secondNumber).toBe(0);
+
+    const num2Input: HTMLInputElement = fixture.nativeElement.querySelectorAll('input[type="number"]')[1];
+
+    expect(num2Input.value).toBe('');
   });
 
-
+  
   it('should have initial values of zero result', () => {
     expect(component.result).toBe(0);
+
+    const resultSpan: HTMLSpanElement = fixture.nativeElement.querySelector('#result');
+
+    expect(resultSpan.textContent).toBe('0');
   });
+
   
   
 });
 
-  
-});
