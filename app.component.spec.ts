@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 
@@ -12,6 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
@@ -27,6 +30,10 @@ describe('AppComponent', () => {
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
@@ -51,14 +58,16 @@ describe('AppComponent', () => {
   it('firstValue equal 0'), () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.firstNumber).toEqual(0);
+    expect(app.firstNumber)
+      .withContext('at Start')
+      .toEqual(0);
   }
 
   it('secondValue equal 0'), () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.secondNumber)
-      .withContext('At start')
+      .withContext('at Start')
       .toEqual(0);
   }
 
@@ -66,7 +75,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.result)
-      .withContext('At start')
+      .withContext('at Start')
       .toEqual(0);
   }
 
