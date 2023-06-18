@@ -1,6 +1,5 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -28,9 +27,11 @@ describe('AppComponent', () => {
         MatButtonModule,
         ReactiveFormsModule,
       ],
-      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
+  });
 
+  beforeEach(() => {
+    
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -55,29 +56,22 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span')?.textContent).toContain('calculator app is running!');
   });
 
-  it('firstValue equal 0'), () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.firstNumber)
-      .withContext('at Start')
-      .toEqual(0);
-  }
+  it('should have initial values of zero first number', () => {
+    expect(component.firstNumber).toBe(0);
+  });
 
-  it('secondValue equal 0'), () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.secondNumber)
-      .withContext('at Start')
-      .toEqual(0);
-  }
 
-  it('result equal 0'), () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.result)
-      .withContext('at Start')
-      .toEqual(0);
-  }
+  it('should have initial values of zero second number', () => {
+    expect(component.secondNumber).toBe(0);
+  });
+
+
+  it('should have initial values of zero result', () => {
+    expect(component.result).toBe(0);
+  });
+  
+  
+});
 
   
 });
